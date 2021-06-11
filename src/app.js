@@ -5,6 +5,8 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
 const app = express()// It stores this application
+const port = process.env.PORT || 3000
+
 const publicDirectory = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')//customization of views directory
 const partialsPath = path.join(__dirname, '../templates/partials')
@@ -111,6 +113,6 @@ app.get('*', (req, res) => {//wildcard is used here, in order to get the page th
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000')
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
 }) //it starts the server and it listens to the specific port
